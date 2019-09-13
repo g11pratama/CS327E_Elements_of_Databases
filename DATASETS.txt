@@ -1,0 +1,24 @@
+Description:
+
+The main dataset is about political campaign contribution made from 2007-2018. It contains two different data types and each has seven data files for the following years: 2007-2008, 2009-2010, 2011-2012, 2013-014, 2015-2016, 2017-2018 and 2019-2020. The first data type lists each contribution or independent expenditure made by a political action committee, party committee, candidate committee or other federal committee to a candidate during the two-year election cycle. The second data type contains one record for each committee registered with the Federal Election Commission. 
+While the first data type lists contributions and expenditures made by committees, the committees are denoted by FEC filer identification number. The second data type is a master of the committees registered with the FEC, so the first data type is linked by the committee identification number to the second data type, which will have the I.D. number, as well as names and addresses for the committees. 
+
+By analyzing this dataset, we are going to find out the major donors of the political campaigns during the past 14 years. This dataset will provide us some insights about which area or states have the highest donation, indicating a high public interest in politics. Moreover, through measuring the time series of these contributions, we can find out whether the public is more or less interested in politics. If the public are more involved in politics, the contribution will increase as time goes by. Further insights we hope to gain on is the flow of these committee contributions and whether there are shifts of contributions to different political parties.
+
+Link to dataset:
+https://www.fec.gov/data/browse-data/?tab=bulk-data
+
+Note that the files are delimited by “|”, and we convert them to .csv files.
+
+Sample data:
+First datatype:
+
+C00000059|HALLMARK CARDS PAC|SARAH MOE|2501 MCGEE|MD #500|KANSAS CITY|MO|64108|U|Q|UNK|M|C||
+C00000422|AMERICAN MEDICAL ASSOCIATION POLITICAL ACTION COMMITTEE|WALKER, KEVIN MR.|25 MASSACHUSETTS AVE, NW|SUITE 600|WASHINGTON|DC|200017400|B|Q||M|M|DELAWARE MEDICAL PAC|
+C00000489|DRIVE POLITICAL FUND CHAPTER 886|JERRY SIMS JR|3528 W RENO||OKLAHOMA CITY|OK|73107|U|N||Q|L|D.R.I.V.E. COMMITTEE|
+
+Second data type:
+06262009|500|C00435065|H8OH16058|D310244|424490|||4072320091116608452
+C00409409|N|Q2|P|29992447807|24K|CCM|MIKE MCMAHON FOR CONGRESS|STATEN ISLAND|NY|10301|||06262009|500|C00451138|H8NY13077|D310245|424490|||4072320091116608453
+C00409409|N|Q2|P|29992447808|24K|CCM|MINNICK FOR CONGRESS|BOISE|ID|83701|||06262009|500|C00441105|H8ID01090|D310243|424490|||4072320091116608454
+
