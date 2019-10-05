@@ -33,3 +33,8 @@ where Committee_ID = 'CMTE_ID'
 --gives error
 select cast(CMTE_ZIP as INT64) as Zip
 from fec_modeled.committee_2015_2016
+
+-- Query used to investigate why an inner join on a foreign key from one table does not result in the same amount records as that same table
+select cc.Committee_ID
+from fec_modeled.contributes_2015_2016 cc left outer join fec_modeled.committee_2015_2016 cm on cc.Committee_ID = cm.ID
+where cm.ID is null
