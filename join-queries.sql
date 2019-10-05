@@ -20,24 +20,25 @@ where cc.Payee_ID = 'C00002600'
 select distinct cm.Name
 from fec_modeled.contributes_2007_2008 cc
 full outer join fec_modeled.committee_2007_2008 cm
-on cc.Committee_ID = cm_ID
+on cc.Committee_ID = cm.ID
 where cc.Amount > 10000
 
 -- find all the committee's names which gave more than 10,000 USD to candidates in 2007 and 2008
 
-select distinct cm.CMTE_NM
+select distinct cm.Name
 from fec_modeled.contributes_2009_2010 cc
 full outer join fec_modeled.committee_2009_2010 cm
 on cc.Committee_ID = cm.ID
-where cc.Type = '24K'
+where cc.Transaction_Type = '24K'
 
 -- find all the committee's names whose contribution are made to nonaffiliated committees in 2009 and 2010
 
 
-select distinct cm.TRES_NM
-from fec_modeled.contributes_2011_2012 cc
-full outer join fec_modeled.committee_2011_2012 cm
-on cc.Committee_ID = cm.ID
-where cc.Type = 'PTY'
 
--- find the treasurer names for all party organizations in 2011 and 2012
+select distinct cm.TRES_NM
+from fec_staging.Committee_Contributions_to_Candidates_2011_2012 cc
+full outer join fec_staging.Committee_Master_2011_2012 cm
+on cc.CMTE_ID = cm.CMTE_ID
+where cc. ENTITY_TP = 'PTY'
+
+-- find the treasurer names for all party organizations in 2011 and 2012. This is no longer an option for our modeled set.
