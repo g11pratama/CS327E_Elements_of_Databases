@@ -1,0 +1,7 @@
+create table fec_modeled.contributes_2019_2020 as
+select CMTE_ID as Committee_ID, CAND_ID as Candidate_ID, TRANSACTION_TP as Transaction_Type, safe_cast(TRANSACTION_DT as Date) as Date, TRANSACTION_AMT as Amount, OTHER_ID as Payee_ID, SUB_ID as Contribution_ID
+from fec_staging.Committee_Contributions_to_Candidates_2019_2020
+
+In the "Contributes" table, we tried to cast TRANSACTION_DT as type date. However, GCP returns an error when we try to do it. It shows "Invalid cast from INT64 to DATE at [2:104]", which means we are not able to cast TRANSACTION_DT as type date because the values in that column do not have the date type format. Therefore, we can only leave the type as integer. 
+
+In the "Candidates" and "Committees" tables, some of the zip code are nine digits. We need to trim down those zip codes to five digits so they are consistent throughout the entire table.
