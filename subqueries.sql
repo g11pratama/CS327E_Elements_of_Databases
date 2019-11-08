@@ -1,4 +1,4 @@
---Find the states which has over 20 candidates whose committee has given a negative amount of money in 2016
+--Find the states which have over 20 candidates whose committees have given a negative amount of money in 2016
 select state, Num_Cand
 from
 (select cand.state as state, count(cand.Name) as Num_Cand
@@ -11,7 +11,7 @@ group by cand.state
 order by count(cand.Name) desc)
 where Num_Cand >= 20
 
---Find the names of candidates who has not been a national candidate before 2020
+--Find the names of candidates who have not been national candidates before 2020
 select cand.Name
 from fec_modeled.Candidates_Beam_DF cand
 where cand.Year not in
@@ -20,7 +20,7 @@ from fec_modeled.Candidates_Beam
 where Year < 2020)
 
 
---select the names of the committees in Texas which makes a contribution in Year 2018 higher than the average cotribution a committee made in 2018 nationwide. 
+--select the names of the committees in Texas which made a contribution in Year 2018 higher than the average contribution a committee made in 2018 nationwide. 
 
 select com.name
 from fec_modeled.Committees_Beam_DF com 
