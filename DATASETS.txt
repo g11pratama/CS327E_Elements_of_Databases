@@ -9,7 +9,7 @@ By analyzing this dataset, we are going to find out the major donors of the poli
 Link to dataset:
 https://www.fec.gov/data/browse-data/?tab=bulk-data
 
-Note that the files are delimited by ì|î, and we convert them to .csv files.
+Note that the files are delimited by ‚Äú|‚Äù, and we convert them to .csv files.
 
 Sample data:
 First datatype:
@@ -24,36 +24,36 @@ C00409409|N|Q2|P|29992447807|24K|CCM|MIKE MCMAHON FOR CONGRESS|STATEN ISLAND|NY|
 C00409409|N|Q2|P|29992447808|24K|CCM|MINNICK FOR CONGRESS|BOISE|ID|83701|||06262009|500|C00441105|H8ID01090|D310243|424490|||4072320091116608454
 
 
+Dataset 2
 
-Dataset 2
-Description:
-
-The second dataset is about nationwide political election results from 1976 to 2018. There are three data files inside this dataset: election results of U.S. senate, election results of U.S. president and election results od U.S. house of representatives. These three files all have similar structures. Each of them contains the following information:
-
-1.	The year of election
-2.	The state of election
-3.	The district number in each state of election
-4.	The type of election (house, senate or president)
-5.	The stage of election (general or primary)
-6.	Whether the it is runoff election
-7.	Whether the it is a special election
-8.	The candidateís name
-9.	The votes number that a candidate receives in a certain state district
-10.	The total number of votes in that state district
-
-Using the above information, we first all three files into one file and divide the above information into two entity type: ìruns forî and ìelectionî. From our first dataset, we have already established a candidate entity with candidate name, state, office and etc. For each entity in ìelectionî table, it has an election_id (primary key), election year, election state, election district, election type, and total number of the votes in that election district. For each entity in the ìruns forî table, it links the candidate_id with the election_id and both are foreign keys. It also contains a runs_for_id and the votes that a candidate receives in that election. One candidate can attend multiple elections and one election can have multiple candidates.
-
-By adding this secondary dataset, we intend to find out the relationship between political contribution and election results. In other words, we are trying to find out that whether a candidate who received a higher amount of donations tend to have a better chance of winning the election. We are also trying to find out whether the candidatesí party affiliation (republican or democratic) affects their election results and the amount of donation received. 
-
-Link to dataset:
-https://electionlab.mit.edu/data
-
-Sample data:
-
-Senate election results:
-
-year	state	  	state_po	state_fips	state_cen	state_ic	office 		district	stage	special		candidate		party		writein	mode  	candidatevotes  totalvotes  	unofficial  	version
-2018	Michigan	MI		263		34		23		US Senate	statewide	gen	FALSE		Debbie Stabenow		democrat	FALSE	total	2214478		4237271		FALSE		20190110
-2018	Michigan	MI		26		34		23		US Senate	statewide	gen	FALSE		George E. Huffman III	us taxpayers	FALSE	total	27251		4237271		FALSE		20190110
-2018	Michigan	MI		26		34		23		US Senate	statewide	gen	FALSE		Marcia Squier		green		FALSE	total	40204		4237271		FALSE		20190110
+Description:
+
+The second dataset is about nationwide political election results from 1976 to 2018. There are three data files inside this dataset: election results of U.S. senate, election results of U.S. president and election results od U.S. house of representatives. These three files all have similar structures. Each of them contains the following information:
+
+1.	The year of election
+2.	The state of election
+3.	The district number in each state of election
+4.	The type of election (house, senate or president)
+5.	The stage of election (general or primary)
+6.	Whether it is a runoff election
+7.	Whether it is a special election
+8.	The candidate‚Äôs name
+9.	The number of votes that a candidate receives in a certain state district
+10.	The total number of votes in that state district
+
+Using the above information, we first union all three files into one file and divide the above information into two entity types: ‚Äúruns for‚Äù and ‚Äúelection‚Äù. From our first dataset, we have already established a candidate table with candidate name, state, office and etc. For each entity in ‚Äúelection‚Äù table, it has an election_id (primary key), election year, election state, election district, election type, and total number of the votes in that election district. For each entity in the ‚Äúruns for‚Äù table, it links the candidate_id with the election_id. It also contains the number of votes that a candidate receives in that election. One candidate can only attend one election per year and one election can have multiple candidates.
+
+By adding this secondary dataset, we intend to find out the relationship between political contribution and election results. In other words, we are trying to find out that whether candidates who received higher amounts of donations tend to have better chances in winning the elections. We are also trying to find out whether the candidates‚Äô party affiliation (republican or democratic) affects their election results and the amount of donations received. 
+
+Link to dataset:
+https://electionlab.mit.edu/data
+
+Sample data:
+
+Senate election results:
+
+year	state	  	state_po	state_fips	state_cen	state_ic	office 		district	stage	special		candidate		party		writein	mode  	candidatevotes  totalvotes  	unofficial  	version
+2018	Michigan	MI		263		34		23		US Senate	statewide	gen	FALSE		Debbie Stabenow		democrat	FALSE	total	2214478		4237271		FALSE		20190110
+2018	Michigan	MI		26		34		23		US Senate	statewide	gen	FALSE		George E. Huffman III	us taxpayers	FALSE	total	27251		4237271		FALSE		20190110
+2018	Michigan	MI		26		34		23		US Senate	statewide	gen	FALSE		Marcia Squier		green		FALSE	total	40204		4237271		FALSE		20190110
 2018	Michigan	MI		26		34		23		US Senate	statewide	gen	FALSE		John Howard Wilhelm	natural law	FALSE	total	16502		4237271		FALSE		20190110
