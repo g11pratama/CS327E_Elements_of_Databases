@@ -1,0 +1,16 @@
+Query 1:
+This query will join candidates from the first dataset to candidates from the second dataset to find how many votes that candidate received
+
+We need to tranform the second dataset, namely we need to create primary keys to link the second dataset to the first dataset.
+
+Query 2:
+For candidates who ran multiple elections, return the amount contributed to that candidate and the amount of votes that canidate received.
+We will need to use aggregations on amounts and joins.
+
+We need to ensure that there are no duplicates in the primary keys for Election_ID
+
+Query 3:
+Determine which house district generated the most votes, and the total contributions that district received.
+We will need joins and aggregations, grouping by district and year
+
+We will need the same transformation as the first query
