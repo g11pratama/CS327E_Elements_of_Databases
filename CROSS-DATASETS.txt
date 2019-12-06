@@ -1,16 +1,16 @@
 Query 1:
-This query will join candidates from the first dataset to candidates from the second dataset to find how many votes that candidate received
+This query will join candidates from the first dataset to candidates from the second dataset to find how many votes that candidate received. This query returns the names of top 10 candidates who gain the highest amount of votes in Texas.
 
 We need to tranform the second dataset, namely we need to create primary keys to link the second dataset to the first dataset.
 
 Query 2:
-For candidates who ran multiple elections, return the amount contributed to that candidate and the amount of votes that canidate received.
-We will need to use aggregations on amounts and joins.
+This query returns the names of top 10 candidates who receive the highest amount of money in a single contribution. This query also shows the contribution committee and contribution amount. 
 
 We need to ensure that there are no duplicates in the primary keys for Election_ID
 
 Query 3:
-Determine which house district generated the most votes, and the total contributions that district received.
-We will need joins and aggregations, grouping by district and year
+Determine which state gives the highest amount of contribution, and the total number of people vote in that state. This query returns the top 10 states which give the highest amount of contribution in year 2016 and the number of votes in 2016 presidential election in that state. This query aim to find whether there is a relationship between the total amount of political contribution and the total number of people votes.
+
+We will need joins and aggregations, grouping by state
 
 We will need the same transformation as the first query
